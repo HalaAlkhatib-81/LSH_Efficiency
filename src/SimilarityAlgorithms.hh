@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <set>
 #include <unordered_set>
 #include <unordered_map>
 #include <algorithm>
@@ -61,7 +62,7 @@ private:
      * @pre Los conjuntos de documentos no deben estar vacíos
      * @post Devuelve un valor entre 0 y 1 que representa la similitud.
      */
-    double computeSimilarity(unordered_set<string>& doc1, unordered_set<string>& doc2);
+    double computeSimilarity(set<string>& doc1, set<string>& doc2);
 
     /**
      * @brief Calcula la firma MinHash de un conjunto de shingles.
@@ -71,7 +72,7 @@ private:
      * @pre El conjunto de shingles no debe estar vacío
      * @post Devuelve un vector con las firmas MinHash.
      */
-    static vector<uint32_t> computarMinHash(unordered_set<string> shingles, int& T);
+    static vector<uint32_t> computarMinHash(set<string> shingles, int& T);
 
     /**
      * @brief Calcula la similitud MinHash entre dos conjuntos de shingles.
@@ -82,7 +83,7 @@ private:
      * @pre Los conjuntos de shingles no deben estar vacíos
      * @post Devuelve un valor entre 0 y 1 que representa la similitud.
      */
-    static double funcion_general_minHash(unordered_set<string>& shinglesA, unordered_set<string>& shinglesB, int& T);
+    static double funcion_general_minHash(set<string>& shinglesA, set<string>& shinglesB, int& T);
 
     /**
      * @brief Divide las firmas MinHash en bandas.
@@ -126,7 +127,7 @@ private:
      * @pre Los conjuntos de shingles no deben estar vacíos
      * @post Devuelve un valor entre 0 y 1 que representa la similitud.
      */
-    static double funcion_general_LSH(unordered_set<string>& shinglesA, unordered_set<string>& shinglesB, int& T, int& b);
+    static double funcion_general_LSH(set<string>& shinglesA, set<string>& shinglesB, int& T, int& b);
 };
 
 #endif

@@ -2,53 +2,60 @@
 
 void SimilarityAlgorithms::JaccardSimilarity(const string& archivo1, const string& archivo2){
     DocumentsManager manager;
-    unordered_set<string> doc1 = manager.selectionDoc(archivo1);
-    unordered_set<string> doc2 = manager.selectionDoc(archivo2);
+    set<string> doc1 = manager.selectionDoc(archivo1);
+    set<string> doc2 = manager.selectionDoc(archivo2);
 
     cout << "El resultado de la similitud de Jaccard es ";
     
     auto start = chrono::high_resolution_clock::now();
-    cout << computeSimilarity(doc1, doc2) << endl;
+    double res = computeSimilarity(doc1, doc2);
+    cout << res << endl;
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
-    cout << "Tiempo de ejecución: " << duration.count() << " segundos" << std::endl;
+    cout << "Tiempo de ejecucion: " << duration.count() << " segundos" << std::endl;
 }   
 
 
 void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo2, int& T){
     DocumentsManager manager;
-    unordered_set<string> doc1 = manager.selectionDoc(archivo1);
-    unordered_set<string> doc2 = manager.selectionDoc(archivo2);
+    set<string> doc1 = manager.selectionDoc(archivo1);
+    set<string> doc2 = manager.selectionDoc(archivo2);
 
     cout << "El resultado del minHash es ";
     
     auto start = chrono::high_resolution_clock::now();
-    cout << funcion_general_minHash(doc1, doc2, T) << endl;
+
+    double res = funcion_general_minHash(doc1, doc2, T);
+    cout << res << endl;
+
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
-    cout << "Tiempo de ejecución: " << duration.count() << " segundos" << std::endl;
+    cout << "Tiempo de ejecucion: " << duration.count() << " segundos" << std::endl;
 }
 
 
 void SimilarityAlgorithms::LSH(const string& archivo1, const string& archivo2, int& T, int& b){
     DocumentsManager manager;
-    unordered_set<string> doc1 = manager.selectionDoc(archivo1);
-    unordered_set<string> doc2 = manager.selectionDoc(archivo2);
+    set<string> doc1 = manager.selectionDoc(archivo1);
+    set<string> doc2 = manager.selectionDoc(archivo2);
 
     cout << "El resultado del LSH es ";
 
     auto start = chrono::high_resolution_clock::now();
-    cout << funcion_general_LSH(doc1, doc2, T, b) << endl;
+
+    double res = funcion_general_LSH(doc1, doc2, T, b);
+    cout << res << endl;
+
     auto end = chrono::high_resolution_clock::now();
     chrono::duration<double> duration = end - start;
 
-    cout << "Tiempo de ejecución: " << duration.count() << " segundos" << std::endl;
+    cout << "Tiempo de ejecucion: " << duration.count() << " segundos" << std::endl;
 }
 
 
-double SimilarityAlgorithms::computeSimilarity(unordered_set<string>& doc1, unordered_set<string>& doc2) {
+double SimilarityAlgorithms::computeSimilarity(set<string>& doc1, set<string>& doc2) {
     unordered_set<string> intersectionSet, unionSet;
 
     // Calcular la intersección de los conjuntos
@@ -65,7 +72,7 @@ double SimilarityAlgorithms::computeSimilarity(unordered_set<string>& doc1, unor
 }
 
 
-vector<uint32_t> SimilarityAlgorithms::computarMinHash(unordered_set<string> shingles, int& T){
+vector<uint32_t> SimilarityAlgorithms::computarMinHash(set<string> shingles, int& T){
     vector<uint32_t> minhashes(T, UINT32_MAX);
     for(string shin: shingles){
         for(int i = 0; i < T; i++){
@@ -77,7 +84,7 @@ vector<uint32_t> SimilarityAlgorithms::computarMinHash(unordered_set<string> shi
 }
 
 
-double SimilarityAlgorithms::funcion_general_minHash(unordered_set<string>& shinglesA, unordered_set<string>& shinglesB, int& T){
+double SimilarityAlgorithms::funcion_general_minHash(set<string>& shinglesA, set<string>& shinglesB, int& T){
     vector<uint32_t> firmaA = computarMinHash(shinglesA, T);
     vector<uint32_t> firmaB = computarMinHash(shinglesB, T);
 
@@ -126,7 +133,7 @@ double SimilarityAlgorithms::similitudJaccard(const vector<uint32_t> &firmaA, co
 }
 
 
-double SimilarityAlgorithms::funcion_general_LSH(unordered_set<string>& shinglesA, unordered_set<string>& shinglesB, int& T, int& b){
+double SimilarityAlgorithms::funcion_general_LSH(set<string>& shinglesA, set<string>& shinglesB, int& T, int& b){
     vector<uint32_t> firmaA = computarMinHash(shinglesA, T);
     vector<uint32_t> firmaB = computarMinHash(shinglesB, T);
     vector<vector<int>> bandesA = bandes(firmaA, T, b);

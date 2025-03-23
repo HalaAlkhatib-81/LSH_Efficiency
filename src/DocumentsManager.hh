@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <set>
 #include <unordered_set>
 #include <algorithm>
 #include <random>
@@ -60,11 +61,11 @@ public:
     /**
      * @brief Selecciona un documento a partir de un archivo.
      * @param archivo Nombre del archivo.
-     * @return Un conjunto no ordenado de strings que representa el documento.
+     * @return Un conjunto ordenado de strings que representa el documento.
      * @pre El archivo debe existir y ser accesible.
      * @post Se selecciona el documento del archivo especificado.
      */
-    unordered_set<string> selectionDoc(const string& archivo);
+    set<string> selectionDoc(const string& archivo);
 
     /**
      * @brief Muestra el tamaño de un documento.
@@ -122,13 +123,13 @@ private:
     void writeFile(const unordered_set<string>& document, const string& path);
 
     /**
-     * @brief Lee un archivo y devuelve un conjunto no ordenado de k-shingles.
+     * @brief Lee un archivo y devuelve un conjunto ordenado de k-shingles.
      * @param filename Nombre del archivo.
-     * @return Un conjunto no ordenado de k-shingles.
+     * @return Un conjunto ordenado de k-shingles.
      * @pre El archivo debe existir y ser accesible.
      * @post Se devuelve el contenido del archivo como un conjunto no ordenado de k-shingles.
      */
-    unordered_set<string> readKShinglesSet(const string &filename);
+    set<string> readKShinglesSet(const string &filename);
 
     /**
      * @brief Lee un archivo y devuelve una matriz de k-shingles.

@@ -136,9 +136,9 @@ void DocumentsManager::k_shinglesPermutationsGenerator(const string& archivo, co
 }
 
 
-unordered_set<string> DocumentsManager::selectionDoc(const string& archivo){
+set<string> DocumentsManager::selectionDoc(const string& archivo){
     string filename = "../documents/" + archivo + ".txt";
-    unordered_set<string> doc = readKShinglesSet(filename);
+    set<string> doc = readKShinglesSet(filename);
     return doc;
 }
 
@@ -215,14 +215,14 @@ void DocumentsManager::writeFile(const unordered_set<string>& document, const st
     file.close();
 }
 
-unordered_set<string> DocumentsManager::readKShinglesSet(const string &filename){
+set<string> DocumentsManager::readKShinglesSet(const string &filename){
     ifstream file(filename);
     if (!file) {
         cerr << "Error: No se pudo abrir el archivo " << filename << endl;
         exit(-1);
     }
 
-    unordered_set<string> result;
+    set<string> result;
     string grupo;
     string linea;
     bool primer = true;
