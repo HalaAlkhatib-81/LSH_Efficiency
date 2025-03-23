@@ -26,7 +26,7 @@ int main(){
     //prueba.creationTextBase(archivo);
     //prueba.k_shinglesGenerator(archivo, k);
     prueba.k_shinglesPermutationsGenerator(archivo, 10, 10, 10);*/
-    
+
     DocumentsManager Manager;
     SimilarityAlgorithms Algorithm;
 
@@ -36,32 +36,32 @@ int main(){
     while (option != 9){
         switch (option) {
             case 1: {
-                // Lógica para crear texto base
+                // Logica para crear texto base
                 cout << "Crear texto base seleccionado" << endl;
-                cout << "Introduce el archivo a leer, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
+                cout << "Introduce el archivo a leer (por ejemplo <<noticia_chatgpt_y_deepseek>>), recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo;
                 cin >> archivo;
                 Manager.creationTextBase(archivo);
                 break;
             }
             case 2: {
-                // Lógica para crear permutaciones
+                // Logica para crear permutaciones
                 cout << "Crear permutaciones seleccionado" << endl;
-                cout << "Introduce el archivo a leer, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
+                cout << "Introduce el archivo a leer (por ejemplo <<noticia_chatgpt_y_deepseek>>), recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo;
                 cin >> archivo;
                 int size, num_permutations;
-                cout << "Introduce el tamaño de las permutaciones: ";
+                cout << "Introduce el tamano de las permutaciones: ";
                 cin >> size;
-                cout << "Introduce el número de permutaciones: ";
+                cout << "Introduce el numero de permutaciones: ";
                 cin >> num_permutations;
                 Manager.permutationsGenerator(archivo, size, num_permutations);
                 break;
             }
             case 3: {
-                // Lógica para crear k-shingles
+                // Logica para crear k-shingles
                 cout << "Crear k-shingles seleccionado" << endl;
-                cout << "Introduce el archivo a leer, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
+                cout << "Introduce el archivo a leer (por ejemplo <<noticia_chatgpt_y_deepseek>>), recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo;
                 cin >> archivo;
                 int k;
@@ -71,23 +71,23 @@ int main(){
                 break;
             }
             case 4: {
-                // Lógica para crear k-shingles permutaciones
+                // Logica para crear k-shingles permutaciones
                 cout << "Crear k-shingles permutaciones seleccionado" << endl;
-                cout << "Introduce el archivo a leer, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
+                cout << "Introduce el archivo a leer (por ejemplo <<noticia_chatgpt_y_deepseek>>), recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo;
                 cin >> archivo;
                 int size, num_permutations, n;
-                cout << "Introduce el tamaño de las permutaciones: ";
+                cout << "Introduce el tamano de las permutaciones: ";
                 cin >> size;
-                cout << "Introduce el número de permutaciones: ";
+                cout << "Introduce el numero de permutaciones: ";
                 cin >> num_permutations;
-                cout << "Introduce el número de k-shingles a seleccionar: ";
+                cout << "Introduce el numero de k-shingles a seleccionar: ";
                 cin >> n;
                 Manager.k_shinglesPermutationsGenerator(archivo, size, num_permutations, n);
                 break;
             }
             case 5: {
-                // Lógica para calcular la similitud de Jaccard
+                // Logica para calcular la similitud de Jaccard
                 cout << "Calcular la similitud de Jaccard seleccionado" << endl;
                 cout << "Introduce el primer archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo1, archivo2;
@@ -98,7 +98,7 @@ int main(){
                 break;
             }
             case 6: {
-                // Lógica para calcular minHash
+                // Logica para calcular minHash
                 cout << "Calcular minHash seleccionado" << endl;
                 cout << "Introduce el primer archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo1, archivo2;
@@ -106,13 +106,13 @@ int main(){
                 cout << "Introduce el segundo archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 cin >> archivo2;
                 int T;
-                cout << "Introduce el número de funciones hash: ";
+                cout << "Introduce el numero de funciones hash: ";
                 cin >> T;
                 Algorithm.minHash(archivo1, archivo2, T);
                 break;
             }
             case 7: {
-                // Lógica para calcular LSH
+                // Logica para calcular LSH
                 cout << "Calcular LSH seleccionado" << endl;
                 cout << "Introduce el primer archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 string archivo1, archivo2;
@@ -120,9 +120,9 @@ int main(){
                 cout << "Introduce el segundo archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 cin >> archivo2;
                 int T, b;
-                cout << "Introduce el número de funciones hash: ";
+                cout << "Introduce el numero de funciones hash: ";
                 cin >> T;
-                cout << "Introduce el número de bandas: ";
+                cout << "Introduce el numero de bandas: ";
                 cin >> b;
                 Algorithm.LSH(archivo1, archivo2, T, b);
                 break;
@@ -132,10 +132,10 @@ int main(){
                 commands();
                 break;
             default:
-                cout << "Opción no válida" << endl;
+                cout << "Opcion no valida" << endl;
                 break;
         }
-        cout << "Introduce una opción: ";
+        cout << "Introduce una opcion: ";
         cin >> option;
     }
 
