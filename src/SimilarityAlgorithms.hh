@@ -29,7 +29,7 @@ public:
      * @pre Los archivos deben existir y ser accesibles
      * @post Se imprime la similitud de Jaccard entre los dos archivos.
      */
-    void JaccardSimilarity(const string& archivo1, const string& archivo2);
+    void JaccardSimilarity(const string& archivo1, const string& archivo2, const int& k);
 
     /**
      * @brief Calcula la firma MinHash de dos archivos.
@@ -39,7 +39,7 @@ public:
      * @pre Los archivos deben existir y ser accesibles
      * @post Se imprime la similitud MinHash entre los dos archivos.
      */
-    void minHash(const string& archivo1, const string& archivo2, int& T);
+    void minHash(const string& archivo1, const string& archivo2, int& T, const int& k);
 
     /**
      * @brief Calcula la similitud utilizando Locality Sensitive Hashing (LSH).
@@ -50,7 +50,7 @@ public:
      * @pre Los archivos deben existir y ser accesibles
      * @post Se imprime la similitud LSH entre los dos archivos.
      */
-    void LSH(const string& archivo1, const string& archivo2, int& T, int& b);
+    void LSH(const string& archivo1, const string& archivo2, int& T, int& b, const int& k);
 
 private:
 

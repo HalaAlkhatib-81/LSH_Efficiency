@@ -136,9 +136,9 @@ void DocumentsManager::k_shinglesPermutationsGenerator(const string& archivo, co
 }
 
 
-set<string> DocumentsManager::selectionDoc(const string& archivo){
+set<string> DocumentsManager::selectionDoc(const string& archivo, const int& k){
     string filename = "../documents/" + archivo + ".txt";
-    set<string> doc = readKShinglesSet(filename);
+    set<string> doc = readKShinglesSet(filename, k);
     return doc;
 }
 
@@ -215,7 +215,7 @@ void DocumentsManager::writeFile(const unordered_set<string>& document, const st
     file.close();
 }
 
-set<string> DocumentsManager::readKShinglesSet(const string &filename){
+set<string> DocumentsManager::readKShinglesSet(const string &filename, const int& k){
     ifstream file(filename);
     if (!file) {
         cerr << "Error: No se pudo abrir el archivo " << filename << endl;
@@ -223,23 +223,24 @@ set<string> DocumentsManager::readKShinglesSet(const string &filename){
     }
 
     set<string> result;
+    string palabra;
     string grupo;
-    string linea;
-    bool primer = true;
-    while (getline(file, linea)) {
-        stringstream ss(linea);
-        string palabra;
-        while (ss >> palabra) {
-            if (primer) {
-                grupo += palabra;
-                primer = !primer;
-            } else {
-                grupo += " " + palabra;
-            }
+    int count = 0;
+
+    while (file >> palabra) {
+        if (count == 0) {
+            grupo += palabra;
+        } else {
+            grupo += " " + palabra;
         }
-        result.insert(grupo);
-        grupo.clear();
-        primer = !primer;
+
+        count++;
+
+        if (count == k) {
+            result.insert(grupo);
+            grupo.clear();
+            count = 0;
+        }
     }
 
     file.close();

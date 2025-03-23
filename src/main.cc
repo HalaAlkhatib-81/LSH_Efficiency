@@ -94,7 +94,10 @@ int main(){
                 cin >> archivo1;
                 cout << "Introduce el segundo archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 cin >> archivo2;
-                Algorithm.JaccardSimilarity(archivo1, archivo2);
+                int k;
+                cout << "Introduce el valor de k: ";
+                cin >> k;
+                Algorithm.JaccardSimilarity(archivo1, archivo2, k);
                 break;
             }
             case 6: {
@@ -108,7 +111,10 @@ int main(){
                 int T;
                 cout << "Introduce el numero de funciones hash: ";
                 cin >> T;
-                Algorithm.minHash(archivo1, archivo2, T);
+                int k;
+                cout << "Introduce el valor de k: ";
+                cin >> k;
+                Algorithm.minHash(archivo1, archivo2, T, k);
                 break;
             }
             case 7: {
@@ -124,7 +130,10 @@ int main(){
                 cin >> T;
                 cout << "Introduce el numero de bandas: ";
                 cin >> b;
-                Algorithm.LSH(archivo1, archivo2, T, b);
+                int k;
+                cout << "Introduce el valor de k: ";
+                cin >> k;
+                Algorithm.LSH(archivo1, archivo2, T, b, k);
                 break;
             }
             case 8:

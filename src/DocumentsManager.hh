@@ -65,7 +65,7 @@ public:
      * @pre El archivo debe existir y ser accesible.
      * @post Se selecciona el documento del archivo especificado.
      */
-    set<string> selectionDoc(const string& archivo);
+    set<string> selectionDoc(const string& archivo, const int& k);
 
     /**
      * @brief Muestra el tamaño de un documento.
@@ -129,7 +129,7 @@ private:
      * @pre El archivo debe existir y ser accesible.
      * @post Se devuelve el contenido del archivo como un conjunto no ordenado de k-shingles.
      */
-    set<string> readKShinglesSet(const string &filename);
+    set<string> readKShinglesSet(const string &filename, const int& k);
 
     /**
      * @brief Lee un archivo y devuelve una matriz de k-shingles.

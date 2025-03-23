@@ -1,9 +1,9 @@
 #include "SimilarityAlgorithms.hh"
 
-void SimilarityAlgorithms::JaccardSimilarity(const string& archivo1, const string& archivo2){
+void SimilarityAlgorithms::JaccardSimilarity(const string& archivo1, const string& archivo2, const int& k){
     DocumentsManager manager;
-    set<string> doc1 = manager.selectionDoc(archivo1);
-    set<string> doc2 = manager.selectionDoc(archivo2);
+    set<string> doc1 = manager.selectionDoc(archivo1, k);
+    set<string> doc2 = manager.selectionDoc(archivo2, k);
 
     cout << "El resultado de la similitud de Jaccard es ";
     
@@ -17,10 +17,10 @@ void SimilarityAlgorithms::JaccardSimilarity(const string& archivo1, const strin
 }   
 
 
-void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo2, int& T){
+void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo2, int& T, const int& k){
     DocumentsManager manager;
-    set<string> doc1 = manager.selectionDoc(archivo1);
-    set<string> doc2 = manager.selectionDoc(archivo2);
+    set<string> doc1 = manager.selectionDoc(archivo1, k);
+    set<string> doc2 = manager.selectionDoc(archivo2, k);
 
     cout << "El resultado del minHash es ";
     
@@ -36,10 +36,10 @@ void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo
 }
 
 
-void SimilarityAlgorithms::LSH(const string& archivo1, const string& archivo2, int& T, int& b){
+void SimilarityAlgorithms::LSH(const string& archivo1, const string& archivo2, int& T, int& b, const int& k){
     DocumentsManager manager;
-    set<string> doc1 = manager.selectionDoc(archivo1);
-    set<string> doc2 = manager.selectionDoc(archivo2);
+    set<string> doc1 = manager.selectionDoc(archivo1, k);
+    set<string> doc2 = manager.selectionDoc(archivo2, k);
 
     cout << "El resultado del LSH es ";
 
@@ -56,7 +56,7 @@ void SimilarityAlgorithms::LSH(const string& archivo1, const string& archivo2, i
 
 
 double SimilarityAlgorithms::computeSimilarity(set<string>& doc1, set<string>& doc2) {
-    unordered_set<string> intersectionSet, unionSet;
+    set<string> intersectionSet, unionSet;
 
     // Calcular la intersección de los conjuntos
     set_intersection(doc1.begin(), doc1.end(), doc2.begin(), doc2.end(),
