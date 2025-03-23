@@ -5,7 +5,7 @@ void SimilarityAlgorithms::JaccardSimilarity(const string& archivo1, const strin
     unordered_set<string> doc1 = manager.selectionDoc(archivo1);
     unordered_set<string> doc2 = manager.selectionDoc(archivo2);
 
-    computeSimilarity(doc1, doc2);
+    cout << computeSimilarity(doc1, doc2);
 }
 
 
@@ -14,7 +14,7 @@ void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo
     unordered_set<string> doc1 = manager.selectionDoc(archivo1);
     unordered_set<string> doc2 = manager.selectionDoc(archivo2);
 
-    funcion_general_minHash(doc1, doc2, T);
+    cout << funcion_general_minHash(doc1, doc2, T);
 }
 
 
@@ -23,7 +23,7 @@ void SimilarityAlgorithms::LSH(const string& archivo1, const string& archivo2, i
     unordered_set<string> doc1 = manager.selectionDoc(archivo1);
     unordered_set<string> doc2 = manager.selectionDoc(archivo2);
 
-    funcion_general_LSH(doc1, doc2, T, b);
+    cout << funcion_general_LSH(doc1, doc2, T, b);
 }
 
 
