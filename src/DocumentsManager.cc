@@ -170,12 +170,11 @@ unordered_set<string> DocumentsManager::readFileSet(const string &filename) {
     ifstream file(filename);
     if (!file) {
         cerr << "Error: No se pudo abrir el archivo " << filename << endl;
-        exit;
+        exit(-1);
     }
 
     unordered_set<string> result;
     string palabra;
-    bool primero = true;
 
     while(file >> palabra) {
         string palabra_final = limpiarPalabra(palabra);
@@ -192,7 +191,7 @@ vector<string> DocumentsManager::readFileVector(const string &filename){
     ifstream file(filename);
     if (!file) {
         cerr << "Error: No se pudo abrir el archivo " << filename << endl;
-        exit;
+        exit(-1);
     }
 
     vector<string> result;
@@ -220,7 +219,7 @@ unordered_set<string> DocumentsManager::readKShinglesSet(const string &filename)
     ifstream file(filename);
     if (!file) {
         cerr << "Error: No se pudo abrir el archivo " << filename << endl;
-        exit;
+        exit(-1);
     }
 
     unordered_set<string> result;
@@ -252,7 +251,7 @@ vector<vector<string>> DocumentsManager::readKShinglesMatrix(const string &filen
     ifstream file(filename);
     if (!file) {
         cerr << "Error: No se pudo abrir el archivo " << filename << endl;
-        exit;
+        exit(-1);
     }
 
     vector<vector<string>> k_shingles;
