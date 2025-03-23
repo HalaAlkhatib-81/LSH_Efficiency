@@ -7,6 +7,12 @@
 
 #include <set>
 #include <string>
+<<<<<<< HEAD
+=======
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+>>>>>>> 4fdd0edc12fe90efb7db5424d71e7bea9026dcc5
 
 using namespace std;
 
@@ -15,8 +21,11 @@ using namespace std;
 */
 class JaccardSimilarityCalculator {
 public:
+<<<<<<< HEAD
     /** @brief Constructor por defecto. */
     JaccardSimilarityCalculator() = default;
+=======
+>>>>>>> 4fdd0edc12fe90efb7db5424d71e7bea9026dcc5
 
     /** @brief Calcula la similitud de Jaccard entre dos archivos de texto.
         
@@ -27,7 +36,11 @@ public:
         @pre Los archivos deben existir y ser accesibles.
         @post Devuelve la similitud de Jaccard calculada.
     */
+<<<<<<< HEAD
     double computeSimilarity(const string &filename1, const string &filename2);
+=======
+    static double computeSimilarity(const string &filename1, const string &filename2, int opcion, int k = 0);
+>>>>>>> 4fdd0edc12fe90efb7db5424d71e7bea9026dcc5
 
 private:
     /** @brief Lee un archivo de texto línea por línea e inserta cada línea en un conjunto.
@@ -38,7 +51,11 @@ private:
         @pre El archivo debe existir y ser accesible.
         @post El conjunto `doc` contiene todas las líneas del archivo sin duplicados.
     */
+<<<<<<< HEAD
     void readLinesFromFile(const string &filename, set<string> &doc);
+=======
+    static void readElementsFromFile(const string &filename, set<string> &doc, int opcion, int k);
+>>>>>>> 4fdd0edc12fe90efb7db5424d71e7bea9026dcc5
 };
 
 #endif // JACCARD_SIMILARITY_CALCULATOR_HH

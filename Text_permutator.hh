@@ -10,6 +10,7 @@
 #include <vector>
 #include <random>
 #include <fstream>
+#include <algorithm>
 #include "Text_utils.hh"
 #endif
 
