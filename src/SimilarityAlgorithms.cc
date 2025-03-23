@@ -5,8 +5,15 @@ void SimilarityAlgorithms::JaccardSimilarity(const string& archivo1, const strin
     unordered_set<string> doc1 = manager.selectionDoc(archivo1);
     unordered_set<string> doc2 = manager.selectionDoc(archivo2);
 
-    cout << "El resultado de la similitud de Jaccard es " << computeSimilarity(doc1, doc2) << endl;
-}
+    cout << "El resultado de la similitud de Jaccard es ";
+    
+    auto start = chrono::high_resolution_clock::now();
+    cout << computeSimilarity(doc1, doc2) << endl;
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    cout << "Tiempo de ejecución: " << duration.count() << " segundos" << std::endl;
+}   
 
 
 void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo2, int& T){
@@ -14,7 +21,14 @@ void SimilarityAlgorithms::minHash(const string& archivo1, const string& archivo
     unordered_set<string> doc1 = manager.selectionDoc(archivo1);
     unordered_set<string> doc2 = manager.selectionDoc(archivo2);
 
-    cout << "El resultado del minHash es " << funcion_general_minHash(doc1, doc2, T) << endl;
+    cout << "El resultado del minHash es ";
+    
+    auto start = chrono::high_resolution_clock::now();
+    cout << funcion_general_minHash(doc1, doc2, T) << endl;
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    cout << "Tiempo de ejecución: " << duration.count() << " segundos" << std::endl;
 }
 
 
@@ -23,7 +37,14 @@ void SimilarityAlgorithms::LSH(const string& archivo1, const string& archivo2, i
     unordered_set<string> doc1 = manager.selectionDoc(archivo1);
     unordered_set<string> doc2 = manager.selectionDoc(archivo2);
 
-    cout << "El resultado del LSH es " << funcion_general_LSH(doc1, doc2, T, b) << endl;
+    cout << "El resultado del LSH es ";
+
+    auto start = chrono::high_resolution_clock::now();
+    cout << funcion_general_LSH(doc1, doc2, T, b) << endl;
+    auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> duration = end - start;
+
+    cout << "Tiempo de ejecución: " << duration.count() << " segundos" << std::endl;
 }
 
 

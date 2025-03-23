@@ -8,6 +8,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <algorithm>
+#include <chrono>
 #include "xxhash.h"
 #include "DocumentsManager.hh"
 
