@@ -50,7 +50,7 @@ void LSH::readElementsFromFile(const string &filename, set<string> &doc, int opc
     file.close();
 }
 
-vector<vector<int>> LSH::bandes(vector<uint32_t> minhashes, int b){
+vector<vector<int>> LSH::bandes(vector<uint32_t> minhashes, const int& b){
     vector<vector<int>> bandes;
     int r = T/b;
     for(int i = 0; i < b; i++){
