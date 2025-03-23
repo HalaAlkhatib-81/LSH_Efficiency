@@ -94,7 +94,7 @@ int main(){
                 cin >> archivo1;
                 cout << "Introduce el segundo archivo a comparar, recuerda, debe ser SIN .txt y debe estar en la carpeta /documents: ";
                 cin >> archivo2;
-                cout << "el resultado es " << Algorithm.JaccardSimilarity(archivo1, archivo2) << endl;
+                Algorithm.JaccardSimilarity(archivo1, archivo2);
                 break;
             }
             case 6: {
@@ -108,7 +108,7 @@ int main(){
                 int T;
                 cout << "Introduce el numero de funciones hash: ";
                 cin >> T;
-                cout << "el resultado del minHash es: " << Algorithm.minHash(archivo1, archivo2, T) << endl;
+                Algorithm.minHash(archivo1, archivo2, T);
                 break;
             }
             case 7: {
@@ -124,7 +124,7 @@ int main(){
                 cin >> T;
                 cout << "Introduce el numero de bandas: ";
                 cin >> b;
-                cout << "El resultado del LSH es: " << Algorithm.LSH(archivo1, archivo2, T, b) << endl;
+                Algorithm.LSH(archivo1, archivo2, T, b);
                 break;
             }
             case 8:
