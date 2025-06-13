@@ -1,3 +1,3 @@
-# Proyecto_Algoritmica
+# LSH Efficiency
 
-Comprobar la eficiencia del Locality Sensitive Hashing (LSH) en cuanto a detectar similitud entre documentos de texto.
+Program to check Locality Sensitive Hashing (LSH) efficiency for text document similarity detection and compare to other strategies.
